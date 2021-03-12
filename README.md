@@ -18,3 +18,9 @@ This is an experimental development environment that leverages the next version 
 - generated classes for [Circle's color palette](https://brand.circle.com/d/M9z54TaEwsWL/circle-brand-guide#/circle/color-palette) (see [tailwind.config.js](tailwind.config.js) for more info)
 - uses the next version of Storybook for Webpack 5
   - sets up upgrade path to next-gen bundlers like [ESBuild](https://esbuild.github.io/) & [Vite](https://vitejs.dev/)
+
+## Resources
+
+- https://tailwindcss.com/
+- https://github.com/aniftyco/awesome-tailwindcss
+- https://github.com/tailwindlabs/headlessui

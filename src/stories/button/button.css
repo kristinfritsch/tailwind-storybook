@@ -1,22 +1,35 @@
-@tailwind base;
+.button {
+  @apply font-black text-center transition-all border rounded-md cursor-pointer border-jelly;
 
-@layer base {
-  .button {
-    @apply font-black text-center text-white transition-colors border rounded-md bg-jelly border-jelly hover:bg-jelly-300 hover:border-jelly-300;
+  &:focus {
+    @apply outline-none ring ring-jelly ring-offset-2 ring-offset-white;
+  }
 
-    &.small {
-      @apply px-3 py-2;
-      font-size: 12px;
-    }
+  &.primary {
+    @apply text-white bg-jelly hover:bg-jelly-300;
+  }
 
-    &.medium {
-      @apply px-4 py-3;
-      font-size: 14px;
-    }
+  &.secondary {
+    @apply bg-white text-jelly hover:bg-jelly-100;
+  }
 
-    &.large {
-      @apply px-5 py-4;
-      font-size: 16px;
-    }
+  &.small {
+    @apply px-3 py-2;
+    font-size: 12px;
+  }
+
+  &.medium {
+    @apply px-4 py-3;
+    font-size: 14px;
+  }
+
+  &.large {
+    @apply px-5 py-4;
+    font-size: 16px;
+  }
+
+  &.loading,
+  &:disabled {
+    @apply cursor-default bg-jelly-100 border-jelly-100;
   }
 }
