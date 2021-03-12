@@ -1,0 +1,31 @@
+@tailwind base;
+
+@layer base {
+  .button {
+    @apply bg-jelly
+    border
+    border-jelly
+    rounded-md
+    text-white
+    transition-colors
+    hover:bg-jelly-300
+    hover:border-jelly-300
+    text-center
+    font-black;
+
+    &.small {
+      @apply py-2 px-3;
+      font-size: 12px;
+    }
+
+    &.medium {
+      @apply py-3 px-4;
+      font-size: 14px;
+    }
+
+    &.large {
+      @apply py-4 px-5;
+      font-size: 16px;
+    }
+  }
+}
