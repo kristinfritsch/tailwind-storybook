@@ -2,7 +2,7 @@
   @apply font-black text-center transition-all border rounded-md cursor-pointer border-jelly;
 
   &:focus {
-    @apply outline-none ring ring-jelly ring-offset-2 ring-offset-white;
+    @apply outline-none ring ring-jelly ring-offset-1 ring-offset-white;
   }
 
   &.primary {
@@ -30,6 +30,6 @@
 
   &.loading,
   &:disabled {
-    @apply cursor-default bg-jelly-100 border-jelly-100;
+    @apply cursor-default bg-jelly-100 border-jelly-100 !important;
   }
 }
