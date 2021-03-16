@@ -1,16 +1,13 @@
 module.exports = {
   plugins: [
-    [
-      "postcss-preset-env",
-      {
-        stage: 3,
-        features: {
-          "nesting-rules": true,
-        },
+    require("postcss-preset-env")({
+      stage: 3,
+      features: {
+        "nesting-rules": true,
       },
-    ],
-    require("postcss-import"),
+      autoprefixer: true,
+    }),
     require("tailwindcss"),
-    require("autoprefixer"),
   ],
+  purge: ["./src/components/**/*.tsx"],
 };

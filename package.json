@@ -1,8 +1,14 @@
 {
   "name": "storybook",
+  "main": "dist/src/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/types",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tailwindcss/forms": "^0.2.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,32 +16,49 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "classnames": "^2.2.6",
+    "postcss-nested": "^5.0.5",
+    "postcss-nesting": "^7.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "tailwindcss": "^2.0.3",
     "typescript": "^4.1.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "rollup -c"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
     "@storybook/addon-actions": "^6.2.0-beta.13",
     "@storybook/addon-essentials": "^6.2.0-beta.13",
     "@storybook/addon-links": "^6.2.0-beta.13",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.2.0-beta.13",
     "@storybook/react": "^6.2.0-beta.13",
+    "@types/classnames": "^2.2.11",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.2",
     "postcss": "^8.2.8",
     "postcss-import": "^14.0.0",
     "postcss-preset-env": "^6.7.0",
+    "rollup": "^2.41.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-recommended": "^4.0.0",
-    "stylelint-prettier": "^1.2.0",
-    "tailwindcss": "^2.0.3"
+    "stylelint-prettier": "^1.2.0"
   }
 }

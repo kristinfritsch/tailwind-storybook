@@ -3,6 +3,9 @@ module.exports = {
 
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ["Circular", "sans-serif"],
+    },
     colors: {
       jelly: {
         100: "#CCB6FC",

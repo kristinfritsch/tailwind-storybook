@@ -1,0 +1,44 @@
+@tailwind utilities;
+
+@layer components {
+  .form-control {
+    @apply relative w-max;
+
+    & > .label {
+      @apply absolute left-0 text-base transition-all transform translate-x-4 translate-y-3 pointer-events-none text-licorice-300;
+    }
+
+    & > .input {
+      @apply px-3 pt-4 pb-2 transition-all rounded-md bg-licorice-50;
+    }
+
+    &.filled,
+    &.focused {
+      & > .label {
+        @apply text-xs translate-x-3 translate-y-0;
+      }
+    }
+
+    &.focused {
+      & > .input {
+        @apply border-none outline-none ring-2 ring-jelly ring-offset-white ring-offset-2;
+      }
+    }
+
+    &.error {
+      & > .input {
+        @apply ring-redhot-400;
+      }
+    }
+
+    &.grow {
+      & > .input {
+        @apply w-full;
+      }
+    }
+
+    & > .icon {
+      @apply absolute w-5 transition-colors right-3 top-3.5 text-licorice-400 hover:text-jelly-400;
+    }
+  }
+}

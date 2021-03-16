@@ -1,0 +1,27 @@
+@layer components {
+  .checkbox-container {
+    @apply inline-flex text-sm cursor-pointer;
+
+    & .checkbox-input {
+      @apply w-5 h-5 opacity-0;
+
+      &:focus + .checkbox {
+        @apply outline-none ring-2 ring-jelly ring-offset-white ring-offset-2;
+      }
+
+      &:checked + .checkbox {
+        @apply text-white bg-jelly;
+      }
+    }
+
+    & .checkbox {
+      @apply w-5 h-5 border rounded-sm border-licorice-300;
+    }
+  }
+
+  &:hover {
+    & .checkbox {
+      @apply ring-2 ring-jelly-100;
+    }
+  }
+}
