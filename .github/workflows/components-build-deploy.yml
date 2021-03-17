@@ -5,24 +5,26 @@ name: Node.js CI
 
 on:
   push:
-    branches: [$default-branch]
+    branches: [master]
   pull_request:
-    branches: [$default-branch]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js
         uses: actions/setup-node@v2.1.5
         with:
           node-version: "15.x"
+
       - name: Install dependencies
         run: yarn --frozen-lockfile
-      - name: Install dependencies
+      - name: Build component library
       - run: yarn build
-      - name: Install dependencies
+      - name: Publish package
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
