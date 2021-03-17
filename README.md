@@ -12,7 +12,11 @@ This is an experimental development environment that leverages the next version 
 2. `yarn storybook`
 3. http://localhost:6006
 
-## Usage
+## Build
+
+1. `yarn build`
+
+## External Usage
 
 ### Importing a component
 

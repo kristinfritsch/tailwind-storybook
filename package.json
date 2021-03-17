@@ -30,7 +30,6 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
-    "postinstall": "link-module-alias",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rollup -c"
