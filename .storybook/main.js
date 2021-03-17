@@ -28,7 +28,18 @@ module.exports = {
     builder: "webpack5",
   },
   webpackFinal: async (config) => {
-    config.resolve.alias["@"] = path.resolve(__dirname, "../src");
+    config.resolve.fallback = {
+      fs: false,
+      tls: false,
+      net: false,
+      path: false,
+      zlib: false,
+      http: false,
+      https: false,
+      stream: false,
+      crypto: false,
+      "crypto-browserify": require.resolve("crypto-browserify"),
+    };
     config.resolve.alias["@components"] = path.resolve(
       __dirname,
       "../src/components"
