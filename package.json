@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "@dzhengcircle/storybook",
   "license": "UNLICENSED",
   "main": "dist/src/index.js",
   "files": [
