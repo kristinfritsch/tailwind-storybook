@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, InputProps } from "./";
+import { Input, InputProps } from "./Input";
 
 const RevealIcon = () => (
   <svg

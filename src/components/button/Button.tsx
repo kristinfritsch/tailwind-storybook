@@ -1,11 +1,12 @@
+import { ButtonHTMLAttributes } from "react";
 import "./button.css";
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * How large should the button be?
    */
   size?: "small" | "medium" | "large";
-  type?: "primary" | "secondary";
+  variant?: "primary" | "secondary";
   /**
    * Button contents
    */
@@ -22,16 +23,18 @@ export interface ButtonProps {
  */
 export const Button = ({
   size = "medium",
-  type = "primary",
-  label,
+  variant = "primary",
+  children,
   disabled,
   ...props
 }: ButtonProps) => {
   return (
-    <button className={`button ${size} ${type}`} disabled={disabled} {...props}>
-      {label}
+    <button
+      className={`button ${size} ${variant}`}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
     </button>
   );
 };
-
-export default Button;

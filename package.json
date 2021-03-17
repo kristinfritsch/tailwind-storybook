@@ -2,16 +2,17 @@
   "name": "storybook",
   "main": "dist/src/index.js",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "types": "dist/types",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/jit": "^0.1.1",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
@@ -29,6 +30,7 @@
     "react-dom": "^17.0.1"
   },
   "scripts": {
+    "postinstall": "link-module-alias",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "rollup -c"
@@ -39,16 +41,19 @@
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-multi-entry": "^4.0.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
+    "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-actions": "^6.2.0-beta.13",
     "@storybook/addon-essentials": "^6.2.0-beta.13",
     "@storybook/addon-links": "^6.2.0-beta.13",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-storyshots": "^6.1.21",
     "@storybook/builder-webpack5": "^6.2.0-beta.13",
     "@storybook/react": "^6.2.0-beta.13",
     "@types/classnames": "^2.2.11",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.1.2",
+    "module-alias": "^2.2.2",
     "postcss": "^8.2.8",
     "postcss-import": "^14.0.0",
     "postcss-preset-env": "^6.7.0",
@@ -56,9 +61,16 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
+    "storybook-addon-designs": "^5.4.5",
     "style-loader": "^2.0.0",
     "stylelint": "^13.12.0",
     "stylelint-config-recommended": "^4.0.0",
     "stylelint-prettier": "^1.2.0"
+  },
+  "_moduleAliases": {
+    "paths": {
+      "@components": "src/components",
+      "@styles": "src/styles"
+    }
   }
 }

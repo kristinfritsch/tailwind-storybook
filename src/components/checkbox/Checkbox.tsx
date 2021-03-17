@@ -1,10 +1,9 @@
 import { ChangeEvent, forwardRef, InputHTMLAttributes, useState } from "react";
-import cn from "classnames";
 
 import "./checkbox.css";
 
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string | React.ReactNode;
+  label?: React.ReactNode;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(

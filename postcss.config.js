@@ -7,7 +7,6 @@ module.exports = {
       },
       autoprefixer: true,
     }),
-    require("tailwindcss"),
+    require("@tailwindcss/jit"),
   ],
-  purge: ["./src/components/**/*.tsx"],
 };

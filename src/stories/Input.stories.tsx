@@ -1,10 +1,9 @@
 import { Story, Meta } from "@storybook/react";
 
-import { Input, InputProps } from "./";
-import { PasswordInput } from "./PasswordInput";
+import { Input, InputProps, PasswordInput } from "@components/input";
 
 export default {
-  title: "Input",
+  title: "Components/Input",
   component: Input,
 } as Meta;
 

@@ -12,6 +12,20 @@ This is an experimental development environment that leverages the next version 
 2. `yarn storybook`
 3. http://localhost:6006
 
+## Usage
+
+### Importing a component
+
+`import { Button } from 'components-web';`
+
+### Importing Tailwind preset
+
+```
+module.exports = {
+  presets: [require("components-web/styles")],
+};
+```
+
 ## Features
 
 - [Tailwind IntelliSense](https://tailwindcss.com/docs/intellisense)

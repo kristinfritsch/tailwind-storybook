@@ -1,5 +1,4 @@
-import { Button } from "./components/button";
+export * from "./components";
 
-export default {
-  Button,
-};
+// @ts-ignore
+export * from "./styles";

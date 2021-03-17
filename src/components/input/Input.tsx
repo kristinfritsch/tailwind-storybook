@@ -11,9 +11,11 @@ import cn from "classnames";
 import "./input.css";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  type?: "text" | "number" | "email";
+  /** test **/
   label: string;
+  /** test **/
   isError?: boolean;
+  /** test **/
   grow?: boolean;
 }
 
@@ -69,23 +71,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           grow: grow,
         })}
       >
-        <label htmlFor={name} className="label">
-          {label}
+        <label>
+          <span className="label">{label}</span>
+          <input
+            id={name}
+            className="input"
+            onFocus={_handleFocus}
+            onBlur={_handleBlur}
+            onChange={_handleChange}
+            value={value}
+            {...rest}
+            ref={ref}
+          />
+          {children}
         </label>
-        <input
-          {...rest}
-          id={name}
-          className="input"
-          onFocus={_handleFocus}
-          onBlur={_handleBlur}
-          onChange={_handleChange}
-          value={value}
-          ref={ref}
-        />
-        {children}
       </div>
     );
   }
 );
-
-export default Input;
