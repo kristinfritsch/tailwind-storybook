@@ -7,6 +7,6 @@ module.exports = {
       },
       autoprefixer: true,
     }),
-    require("tailwindcss"),
+    require(process.env === "development" ? "@tailwindcss/jit" : "tailwindcss"),
   ],
 };
