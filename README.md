@@ -16,19 +16,21 @@ This is an experimental development environment that leverages the next version 
 
 1. `yarn build`
 
-## External Usage
+# External Usage
 
-### Importing a component
+## Importing a component
 
 `import { Button } from 'components-web';`
 
-### Importing Tailwind preset
+## Importing Tailwind preset
 
 ```
 module.exports = {
   presets: [require("components-web/styles")],
 };
 ```
+
+# Other stuff
 
 ## Features
 
