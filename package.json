@@ -4,9 +4,11 @@
   "files": [
     "dist/**/*"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "types": "dist/types",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/jit": "^0.1.1",
