@@ -11,11 +11,8 @@ import cn from "classnames";
 import "./input.css";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** test **/
   label: string;
-  /** test **/
   isError?: boolean;
-  /** test **/
   grow?: boolean;
 }
 
