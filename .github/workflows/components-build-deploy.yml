@@ -17,7 +17,6 @@ jobs:
           always-auth: true
           node-version: 15.x
           registry-url: "https://npm.pkg.github.com"
-          scope: "@dzhengcircle"
       - run: yarn --frozen-lockfile
       - run: yarn build
       - run: yarn publish
