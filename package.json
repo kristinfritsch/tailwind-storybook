@@ -2,7 +2,7 @@
   "name": "storybook",
   "main": "dist/src/index.js",
   "files": [
-    "dist/**/*"
+    "dist/"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
