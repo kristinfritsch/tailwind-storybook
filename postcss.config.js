@@ -7,6 +7,6 @@ module.exports = {
       },
       autoprefixer: true,
     }),
-    require("@tailwindcss/jit"),
+    require("tailwindcss"),
   ],
 };
