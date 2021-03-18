@@ -50,7 +50,7 @@ export default {
           .replace("src/", "")
           .replace("node_modules/", "external/")
           .replace("../../external", "../external")
-          .replace("../_virtual", "_virtual"),
+          .replace("../../../_virtual", "../../_virtual"),
     }),
   ],
   external: (id) => globalModules.includes(id) || /core-js/.test(id),
