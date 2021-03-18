@@ -30,11 +30,11 @@ export default {
   ],
   preserveModules: true,
   plugins: [
+    peerDepsExternal(),
     resolve({ extensions }),
     commonjs({
       include: "**/node_modules/**",
     }),
-    peerDepsExternal(),
     babel({
       extensions,
       include: ["src/**/*"],
