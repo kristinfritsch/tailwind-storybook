@@ -86,7 +86,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transitionProperty: ["motion-safe"],
+    },
   },
   plugins: [],
 };

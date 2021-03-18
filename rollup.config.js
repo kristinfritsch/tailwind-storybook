@@ -2,8 +2,6 @@ import babel from "rollup-plugin-babel";
 import postcss from "rollup-plugin-postcss";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import postcssImport from "postcss-import";
-import postcssEnv from "postcss-preset-env";
 import rename from "rollup-plugin-rename";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
@@ -40,10 +38,7 @@ export default {
       include: ["src/**/*"],
       exclude: ["node_modules/**", "**/*.css", "**/*.stories.tsx"],
     }),
-    postcss({
-      plugins: [postcssImport(), postcssEnv()],
-      preserveModules: true,
-    }),
+    postcss(),
     rename({
       map: (name) =>
         name

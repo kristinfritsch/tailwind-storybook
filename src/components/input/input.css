@@ -5,7 +5,7 @@
     @apply relative font-sans w-max;
 
     & .label {
-      @apply absolute left-0 text-base transform translate-x-4 translate-y-4 pointer-events-none text-licorice-500;
+      @apply absolute left-0 text-base transform translate-x-4 translate-y-4 pointer-events-none motion-safe:transition-all text-licorice-500;
     }
 
     & .input {
@@ -39,7 +39,12 @@
     }
 
     & .icon {
-      @apply absolute w-5 transition-colors right-3 top-4 text-licorice-400 hover:text-jelly-400;
+      /* reset default styles */
+      @apply p-0 border-none cursor-pointer;
+      /* positioning */
+      @apply absolute right-3 top-4;
+
+      @apply w-5 text-licorice-400 hover:text-jelly-400;
     }
   }
 }
