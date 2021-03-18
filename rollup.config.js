@@ -1,49 +1,51 @@
+import babel from "rollup-plugin-babel";
+import postcss from "rollup-plugin-postcss";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import postcssImport from "postcss-import";
+import postcssEnv from "postcss-preset-env";
 
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import typescript from "rollup-plugin-typescript2";
-import postcss from "rollup-plugin-postcss";
-import autoprefixer from "autoprefixer";
+const extensions = [".js", ".jsx", ".ts", ".tsx"];
 
-import pkg from "./package.json";
+const globals = {
+  react: "React",
+  "react-dom": "ReactDOM",
+  "core-js": "core-js",
+};
+
+const globalModules = Object.keys(globals);
+
+const sourceMap = true;
 
 export default {
-  input: __dirname + "/src/index.ts",
+  input: {
+    index: "./src/index.ts",
+  },
+  preserveModules: true,
   output: [
     {
-      dir: pkg.module,
+      dir: "dist",
       format: "esm",
-      sourcemap: true,
-      exports: "named",
-      name: "test.js",
-    },
-    {
-      dir: pkg.main,
-      format: "cjs",
-      sourcemap: true,
-      exports: "named",
+      globals,
+      sourcemap: sourceMap,
+      preferConst: true,
     },
   ],
-  preserveModules: true,
-  treeshake: true,
   plugins: [
-    peerDepsExternal(),
-    resolve({ browser: true }),
-    commonjs(),
-    typescript({
-      useTsconfigDeclarationDir: true,
-      tsconfigOverride: {
-        exclude: ["**/*.stories.*"],
-      },
-    }),
+    resolve({ extensions }),
     commonjs({
-      exclude: "node_modules",
-      ignoreGlobal: true,
+      include: "**/node_modules/**",
+    }),
+    babel({
+      sourceMap,
+      extensions,
+      include: ["src/**/*"],
+      exclude: ["node_modules/**", "**/*.css", "**/*.stories.tsx"],
     }),
     postcss({
-      modules: true,
-      plugins: [autoprefixer()],
+      plugins: [postcssImport(), postcssEnv()],
+      preserveModules: true,
     }),
   ],
+  external: (id) => globalModules.includes(id) || /core-js/.test(id),
 };

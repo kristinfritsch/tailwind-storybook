@@ -1,9 +1,7 @@
 {
   "name": "@dzheng-circle/tailwind-storybook",
   "license": "UNLICENSED",
-  "main": "dist/cjs",
-  "module": "dist/esm",
-  "types": "dist/types",
+  "main": "dist/src/index.js",
   "files": [
     "dist/"
   ],
@@ -31,7 +29,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "tailwindcss": "^2.0.3",
-    "typescript": "^4.1.2"
+    "typescript": "^4.2.3"
   },
   "peerDependencies": {
     "react": "^17.0.1",
@@ -40,11 +38,14 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "rollup -c"
+    "build": "rm -rf ./dist && rollup -c && tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@storybook/addon-a11y": "^6.1.21",
@@ -64,6 +65,7 @@
     "postcss-import": "^14.0.0",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^2.41.1",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.30.0",
