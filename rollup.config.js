@@ -6,23 +6,41 @@ import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import autoprefixer from "autoprefixer";
 
+import pkg from "./package.json";
+
 export default {
   input: __dirname + "/src/index.ts",
   output: [
     {
-      dir: __dirname + "/dist/",
-      format: "esm", // esm
-      chunkFileNames: "[name].js",
-      exports: "named",
+      dir: pkg.module,
+      format: "esm",
       sourcemap: true,
+      exports: "named",
+      name: "test.js",
+    },
+    {
+      dir: pkg.main,
+      format: "cjs",
+      sourcemap: true,
+      exports: "named",
     },
   ],
   preserveModules: true,
+  treeshake: true,
   plugins: [
     peerDepsExternal(),
     resolve({ browser: true }),
     commonjs(),
-    typescript(),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      tsconfigOverride: {
+        exclude: ["**/*.stories.*"],
+      },
+    }),
+    commonjs({
+      exclude: "node_modules",
+      ignoreGlobal: true,
+    }),
     postcss({
       modules: true,
       plugins: [autoprefixer()],

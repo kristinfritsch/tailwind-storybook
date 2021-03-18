@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "./dist/types",
-    "outDir": "./dist/src",
+    "declarationDir": "dist/types",
+    "esModuleInterop": true,
+    "outDir": "./dist",
     "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
     "module": "esnext",
-    "noEmit": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "sourceMap": true,
