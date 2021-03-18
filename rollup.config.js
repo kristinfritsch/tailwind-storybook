@@ -4,6 +4,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import postcssImport from "postcss-import";
 import postcssEnv from "postcss-preset-env";
+import rename from "rollup-plugin-rename";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 
@@ -15,29 +17,25 @@ const globals = {
 
 const globalModules = Object.keys(globals);
 
-const sourceMap = true;
-
 export default {
   input: {
     index: "./src/index.ts",
   },
-  preserveModules: true,
   output: [
     {
       dir: "dist",
       format: "esm",
-      globals,
-      sourcemap: sourceMap,
-      preferConst: true,
+      exports: "auto",
     },
   ],
+  preserveModules: true,
   plugins: [
     resolve({ extensions }),
     commonjs({
       include: "**/node_modules/**",
     }),
+    peerDepsExternal(),
     babel({
-      sourceMap,
       extensions,
       include: ["src/**/*"],
       exclude: ["node_modules/**", "**/*.css", "**/*.stories.tsx"],
@@ -45,6 +43,13 @@ export default {
     postcss({
       plugins: [postcssImport(), postcssEnv()],
       preserveModules: true,
+    }),
+    rename({
+      map: (name) =>
+        name
+          .replace("src/", "")
+          .replace("node_modules/", "external/")
+          .replace("../../external", "../external"),
     }),
   ],
   external: (id) => globalModules.includes(id) || /core-js/.test(id),
