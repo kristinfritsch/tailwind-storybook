@@ -82,7 +82,8 @@
     }
   },
   "exports": {
-    ".": "./dist/components",
-    "./styles": "./dist/styles"
+    "./": "./dist/components/",
+    "./tailwind": "./dist/styles/index.js",
+    "./styles/": "./dist/styles/"
   }
 }
